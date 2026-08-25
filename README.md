@@ -12,57 +12,131 @@ run underneath that work.
 
 ### Two things worth knowing up front
 
-**Most of my repositories are private.** They hold client data for a regulated
-financial-advisory practice — that isn't going public. I'm glad to give a read-only
-invite or walk through any of them live: the schema, the test suite, the parts that
-went wrong. Just ask.
+**Most of my 50+ repositories are private.** Many hold client data for a regulated
+financial-advisory practice, or production systems for businesses that are paying
+customers — that isn't going public. I'm glad to give a read-only invite or walk
+through any of them live: the schema, the test suite, the parts that went wrong.
+Just ask.
 
 **My first verifiable commit is 29 October 2025.** Everything below was written
 after that date. I'd rather anchor this to a date you can check than to a number I
-round in my favour.
+round in my favour. Every figure on this page comes from a repository I can open
+for you.
 
 ---
 
-### What I've built
+## The work
+
+### Fintech & quantitative finance
 
 **MaatWork CRM** — a full-stack CRM for financial advisors, in production and in
 active use by two advisory teams. 56-table PostgreSQL schema (Prisma) covering
-clients, portfolios, positions, risk profiles and compliance data. 1,400+ commits,
-696 versioned test files (unit + Playwright e2e), deployed on Vercel with CI/CD.
-`Next.js · TypeScript · PostgreSQL · Prisma · Playwright` — *private, ask for access*
+clients, portfolios, positions, risk profiles and compliance data. **1,425 commits,
+681 test files** (unit + Playwright e2e), deployed on Vercel with CI/CD.
+`Next.js · React · TypeScript · Prisma · PostgreSQL · Playwright`
+
+**FF5 quantitative portfolio construction (UCEMA)** — the Fama-French 5-factor model
+end to end: factor download from the Ken French library, OLS beta estimation with
+statsmodels, and constrained SciPy optimizers for maximum Sharpe and maximum
+Information Ratio against SPY, with sector and position limits. **135 tests.**
+`Python · pandas · statsmodels · SciPy`
+
+**MaatQuant** — a unified quantitative research system for US and Argentine markets,
+scanning 385+ tickers for systematic strategy evaluation.
+`Python · pandas · market-data APIs`
+
+**Cactus Wealth market brief** — an agent that produces the weekly client market
+brief as HTML and PDF, end to end and unattended. 72 commits.
+`Python · WeasyPrint · LLM APIs`
+
+**Balanz portal automation** — an authenticated read-only client that reuses a live
+browser session to pull advisor-portal data the platform exposes no API for, and
+normalizes it into a local store. **Read-only by design: it never places an order.**
+That boundary is architectural, not a convention.
+`Python · Playwright · CDP · SQLite`
+
+**[planning.maat.work](https://planning.maat.work)** — generates personalized
+financial plans from income, expenses, goals and time horizon. Online.
+`Next.js · React · TypeScript`
+
+### AI infrastructure
 
 **Local LLM inference optimization (MLX / Apple Silicon)** — took decode throughput
-on a 27B model from 13.3 to 27.8 tok/s on a single M2 Max. I profiled first, found
-93% of decode time sitting in one quantized matrix-vector kernel, and wrote a
-replacement for it in Metal. Output was verified hash-identical at every step, so
-the speedup couldn't be hiding a correctness regression. Every number is documented
-against the commit that produced it.
-`Metal · MLX · quantization · speculative decoding` — *private, ask for access*
+on a 27B model from **13.3 to 27.8 tok/s** on a single M2 Max. I profiled first,
+found 93% of decode time sitting in one quantized matrix-vector kernel, and wrote a
+replacement for it in Metal. Output was verified **hash-identical** at every step,
+so the speedup couldn't be hiding a correctness regression. Every number is
+documented against the commit that produced it.
+`Metal · MLX · quantization · speculative decoding`
 
 **LLM inference gateway** — an OpenAI-compatible gateway routing to four local model
-tiers, serving 7,400 requests in a measured 24 hours. It has a background priority
-class that yields the GPU to interactive traffic instead of starving it, and
-abort-on-disconnect so a closed client frees the GPU on the next token.
-`Python · SSE · GPU scheduling` — *private, ask for access*
+tiers, serving **7,400 requests in a measured 24 hours**. It has a background
+priority class that yields the GPU to interactive traffic instead of starving it,
+and abort-on-disconnect so a closed client frees the GPU on the next token.
+`Python · SSE · GPU scheduling`
 
-**job-autopilot** — an end-to-end pipeline that harvests postings from 33 job-board
-and ATS APIs, scores them against a structured profile, generates a tailored CV and
-drives the application form in a real browser over the Chrome DevTools Protocol.
-The part I'd actually defend is the answering layer: every answer must trace to a
-fact in a single source-of-truth file, and any question it can't ground fails closed
-and goes to a human. 2,800+ tests.
-`Python · CDP · SQLite` — *private, ask for access*
+**Hermes — personal automation platform** — orchestrates **115 active scheduled
+jobs** across finance reporting, email triage, publishing and scraping, on a
+reusable module architecture (27 composable skills, 22 agent modules) with shared
+config validation, rate limiting, locking and kill-switch safety.
+`Python · cron · LLM APIs`
+
+**job-autopilot** — harvests postings from 33 job-board and ATS APIs, scores them
+against a structured profile, generates a tailored CV and drives the application
+form in a real browser over the Chrome DevTools Protocol. The part I'd actually
+defend is the answering layer: **every answer must trace to a fact in a single
+source-of-truth file**, and any question it can't ground fails closed and goes to a
+human. **2,800+ tests.**
+`Python · CDP · SQLite`
+
+**Hermes quota-max router** (MIT) — an OpenAI-compatible LLM router that uses only
+verified free-tier models, with automatic fallback, quota tracking and a circuit
+breaker. 42 commits.
+`Python`
+
+**Agent-Reach** — a single CLI that gives an agent read and search access across
+Twitter, Reddit, YouTube, GitHub and more, with no API fees. **249 commits.**
+`Python`
+
+**DeFi strategy simulator (PancakeSwap)** — forward-shadow evaluation of liquidity
+provision strategies against live market data with zero capital deployed. It
+computes and validates calldata but is **architecturally incapable of signing or
+broadcasting a transaction.**
+`Python · Web3.py · BSC`
+
+### Products shipped for real businesses
+
+Each of these is a working system with a paying or operating customer behind it.
+
+| Project | What it is | Commits |
+|---|---|---|
+| **Oro Azul** | Management system for swimming pools and aquatic centres | 327 |
+| **MaatWork Concesionarios** | Platform for car dealerships, CI/CD on GitHub Actions | 119 |
+| **Simon-AI** | Conversational AI product | 184 |
+| **VARIGAS** | Industrial gas operations platform | 155 |
+| **MaatWork landing** | Commercial-automation SaaS site, Next.js 16 + Tailwind v4 | 135 |
+| **MaatWork Design System** | Centralized visual language: tokens, symbol library, components | 97 |
+| **MaatWork Mission Control** | API-first Kanban for teams and their AI agents | 43 |
+| **Custodia Digital Forense** | Local-first forensic vault: hashing, traceability, timeline | 39 |
+| **Control Comercial** | Analytics layer over a beverage distributor's ERP | 28 |
+| **AduanaDocs** | SaaS for customs documentation operations | 13 |
+| **MaatWork Nutrición** | Practice-management system for nutritionists | 7 |
+| **Pilates MaatWork** | Studio management with self-service registration | 52 |
+
+### Public repositories
 
 **[Software-Inmobiliarias](https://github.com/Gigisanta/Software-Inmobiliarias)** —
 RealEstate OS, a multi-tenant SaaS for real-estate agencies: commercial pipeline,
 explainable lead scoring, real-time operations centre. Built roughly fifty-fifty
-with a collaborator. **Public.**
+with a collaborator.
 
-**FF5 quantitative portfolio construction (UCEMA)** — the Fama-French 5-factor model
-end to end: factor download, OLS beta estimation with statsmodels, and constrained
-SciPy optimizers for maximum Sharpe and maximum Information Ratio against SPY, with
-sector and position limits. 135 tests.
-`Python · pandas · statsmodels · SciPy` — *private, ask for access*
+**[cactus-landing](https://github.com/Gigisanta/cactus-landing)** — the Cactus
+Wealth Management site.
+
+Also open-source by design and available on request: **MeetCapture**, automatic
+Google Meet transcription for macOS in Swift — 100% local, zero cloud, no meeting
+bots — and **Sueño Claro**, a privacy-first sleep-cycle PWA with no account, no
+microphone and no tracking.
 
 ---
 
@@ -70,9 +144,10 @@ sector and position limits. 135 tests.
 
 I hold Argentina's **Idóneo CNV** securities-agent licence and a **Quantitative
 Finance** certificate from **UCEMA**. Since June 2024 I've advised a personal book
-of 40 clients with USD 300K+ under management at Grupo Abax, and since March 2025 a
-separate digital-assets mandate at Decrypto. That's where the domain knowledge in
-everything above comes from — I'm not modelling a business I read about.
+of 40 clients with **USD 300K+ under management** at Grupo Abax, and since March
+2025 a separate digital-assets mandate at Decrypto. That's where the domain
+knowledge in everything above comes from — I'm not modelling a business I read
+about.
 
 ---
 
