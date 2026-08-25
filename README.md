@@ -35,7 +35,7 @@ clients, portfolios, positions, risk profiles and compliance data. **1,425 commi
 681 test files** (unit + Playwright e2e), deployed on Vercel with CI/CD.
 `Next.js · React · TypeScript · Prisma · PostgreSQL · Playwright`
 
-**FF5 quantitative portfolio construction (UCEMA)** — the Fama-French 5-factor model
+**[FF5 quantitative portfolio construction](https://github.com/Gigisanta/QuantUcema)** (UCEMA, public) — the Fama-French 5-factor model
 end to end: factor download from the Ken French library, OLS beta estimation with
 statsmodels, and constrained SciPy optimizers for maximum Sharpe and maximum
 Information Ratio against SPY, with sector and position limits. **135 tests.**
@@ -89,7 +89,7 @@ source-of-truth file**, and any question it can't ground fails closed and goes t
 human. **2,800+ tests.**
 `Python · CDP · SQLite`
 
-**Hermes quota-max router** (MIT) — an OpenAI-compatible LLM router that uses only
+**[Hermes quota-max router](https://github.com/Gigisanta/hermes-quota-max-router)** (public, MIT) — an OpenAI-compatible LLM router that uses only
 verified free-tier models, with automatic fallback, quota tracking and a circuit
 breaker. 42 commits.
 `Python`
@@ -125,18 +125,35 @@ Each of these is a working system with a paying or operating customer behind it.
 
 ### Public repositories
 
+Start here if you want to read code rather than take my word for it.
+
 **[Software-Inmobiliarias](https://github.com/Gigisanta/Software-Inmobiliarias)** —
 RealEstate OS, a multi-tenant SaaS for real-estate agencies: commercial pipeline,
 explainable lead scoring, real-time operations centre. Built roughly fifty-fifty
 with a collaborator.
 
+**[MeetCapture](https://github.com/Gigisanta/MeetCapture)** — native macOS menu-bar
+app for meeting capture and Spanish/English transcription. 100% local: no cloud
+audio service, no meeting bot, no Python daemon. Core Audio process taps, two
+swappable ASR engines (whisper.cpp and a streaming sherpa-onnx zipformer at ~25×
+realtime), live in-call transcription and speaker diarization.
+`Swift · SwiftUI · Core Audio · sherpa-onnx`
+
+**[hermes-quota-max-router](https://github.com/Gigisanta/hermes-quota-max-router)**
+— OpenAI-compatible LLM router over verified free-tier models, with fallback,
+quota tracking and a circuit breaker. MIT.
+`Python · Redis`
+
+**[QuantUcema](https://github.com/Gigisanta/QuantUcema)** — the Fama-French
+5-factor pipeline above: factor download, OLS beta estimation, constrained
+optimizers for max-Sharpe and max-Information-Ratio. 135 tests. MIT.
+`Python · pandas · statsmodels · SciPy`
+
 **[cactus-landing](https://github.com/Gigisanta/cactus-landing)** — the Cactus
 Wealth Management site.
 
-Also open-source by design and available on request: **MeetCapture**, automatic
-Google Meet transcription for macOS in Swift — 100% local, zero cloud, no meeting
-bots — and **Sueño Claro**, a privacy-first sleep-cycle PWA with no account, no
-microphone and no tracking.
+Also open by design and available on request: **Sueño Claro**, a privacy-first
+sleep-cycle PWA with no account, no microphone and no tracking.
 
 ---
 
