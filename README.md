@@ -5,7 +5,7 @@ I build production software for messy operational problems: financial-advisory s
 **Argentina · UTC−3 · English C2**<br>
 **Argentina + EU citizenship · available for remote employment or global contractor work**
 
-[Portfolio](https://maat.work/gio) · [Resume](https://maat.work/gio/Giolivo-Garcia-Santarelli-Resume.pdf) · [LinkedIn](https://www.linkedin.com/in/giolivo-garcia-451954322/) · [Email](mailto:hola@maat.work?subject=Interview%20with%20Gio)
+[Portfolio](https://maat.work/giolivosantarelli) · [Resume](https://maat.work/giolivosantarelli/Giolivo-Garcia-Santarelli-Resume.pdf) · [LinkedIn](https://www.linkedin.com/in/giolivo-garcia-451954322/) · [Email](mailto:hola@maat.work?subject=Interview%20with%20Gio)
 
 ## Start here
 
