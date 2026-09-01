@@ -9,11 +9,15 @@ I build production software for messy operational problems: financial-advisory s
 
 ## Start here
 
+For AI automation, agent-platform or reliability roles, start with QuotaMax:
+it is the public repository that most directly shows how I build, test and
+operate an AI system when upstreams fail.
+
 | Repository | What it proves | Stack |
 |---|---|---|
+| **[QuotaMax Router](https://github.com/Gigisanta/hermes-quota-max-router)** | OpenAI-compatible routing with fallback, quota and budget controls, Prometheus metrics, failure alerts, an incident runbook and **81.89% measured line coverage** | Python, FastAPI, Redis, GitHub Actions |
 | **[MeetCapture](https://github.com/Gigisanta/MeetCapture)** | Native macOS audio capture, live local transcription, diarization and durable handoff — no meeting bot or cloud audio | Swift, SwiftUI, Core Audio, sherpa-onnx |
 | **[QuantUcema](https://github.com/Gigisanta/QuantUcema)** | Fama–French 5-factor estimation and constrained max-Sharpe / information-ratio portfolio optimization | Python, pandas, statsmodels, SciPy |
-| **[QuotaMax Router](https://github.com/Gigisanta/hermes-quota-max-router)** | OpenAI-compatible routing with provider fallback, quota tracking, circuit breaking and CI | Python, FastAPI, Redis |
 
 ## Public product code
 
