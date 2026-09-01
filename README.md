@@ -15,6 +15,18 @@ I build production software for messy operational problems: financial-advisory s
 | **[QuantUcema](https://github.com/Gigisanta/QuantUcema)** | Fama–French 5-factor estimation and constrained max-Sharpe / information-ratio portfolio optimization | Python, pandas, statsmodels, SciPy |
 | **[QuotaMax Router](https://github.com/Gigisanta/hermes-quota-max-router)** | OpenAI-compatible routing with provider fallback, quota tracking, circuit breaking and CI | Python, FastAPI, Redis |
 
+## Public product code
+
+| Repository | Product surface | Engineering evidence |
+|---|---|---|
+| **[iStock](https://github.com/Gigisanta/iStock-software)** | Inventory and WhatsApp storefront SaaS for phone resellers | Multi-tenancy, Postgres RLS, image pipeline, subscriptions, idempotent webhooks and CI |
+| **[RealEstate OS](https://github.com/Gigisanta/Software-Inmobiliarias)** | Lead-centered operating system for real-estate teams | Next.js monorepo, explainable scoring, RBAC, audit trail and transactional outbox |
+| **[MiKiosco](https://github.com/Gigisanta/mikiosco)** | POS, cash register and inventory for small shops | Offline sales queue, role-based auth, serverless APIs and PostgreSQL |
+
+iStock is a functional pre-production product; RealEstate OS and MiKiosco are
+public engineering builds. Production usage claims below apply only where they
+are stated explicitly.
+
 ## Selected production work
 
 ### Financial advisory CRM
@@ -54,7 +66,10 @@ I am also a licensed financial advisor in Argentina and hold a quantitative-fina
 - Use AI heavily for implementation, never as a substitute for judgment or verification.
 - Prefer a reproducible benchmark, test or commit over an adjective.
 
-I do not have a computer-science degree. I do have production systems, public code and specific engineering decisions I can defend under questioning.
+I bring production systems, public code and specific engineering decisions I
+can defend under questioning. My path combines self-directed engineering with
+regulated financial work, so I am comfortable owning both implementation and
+the operational consequences of the software.
 
 ## Best-fit roles
 
