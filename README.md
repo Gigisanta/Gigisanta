@@ -1,3 +1,8 @@
+<!-- maatwork-brand:maatwork-mw-20260901 -->
+<p align="center"><img src="docs/brand/gigisanta-cover.png" alt="Gigisanta · MaatWork" width="1200"></p>
+
+> profile de MaatWork
+
 # Gio Santarelli — Product & Applied AI Engineer
 
 I build production software for messy operational problems: financial-advisory systems, local LLM infrastructure, native macOS tools and agent workflows.
