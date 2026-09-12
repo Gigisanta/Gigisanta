@@ -23,18 +23,20 @@ operate an AI system when upstreams fail.
 | **[QuotaMax Router](https://github.com/Gigisanta/hermes-quota-max-router)** | OpenAI-compatible routing with fallback, quota and budget controls, Prometheus metrics, failure alerts, an incident runbook and **81.89% measured line coverage** | Python, FastAPI, Redis, GitHub Actions |
 | **[MeetCapture](https://github.com/Gigisanta/MeetCapture)** | Native macOS audio capture, live local transcription, diarization and durable handoff — no meeting bot or cloud audio | Swift, SwiftUI, Core Audio, sherpa-onnx |
 | **[QuantUcema](https://github.com/Gigisanta/QuantUcema)** | Fama–French 5-factor estimation and constrained max-Sharpe / information-ratio portfolio optimization | Python, pandas, statsmodels, SciPy |
+| **[sleeplike](https://github.com/Gigisanta/sueno-claro)** | Privacy-first bilingual sleep calculator that runs locally with no account, microphone or application backend | Next.js, TypeScript, Vitest, Playwright |
 
-## Public product code
+## Private product systems
 
-| Repository | Product surface | Engineering evidence |
+| Product | Product surface | Engineering evidence |
 |---|---|---|
-| **[iStock](https://github.com/Gigisanta/iStock-software)** | Inventory and WhatsApp storefront SaaS for phone resellers | Multi-tenancy, Postgres RLS, image pipeline, subscriptions, idempotent webhooks and CI |
-| **[RealEstate OS](https://github.com/Gigisanta/Software-Inmobiliarias)** | Lead-centered operating system for real-estate teams | Next.js monorepo, explainable scoring, RBAC, audit trail and transactional outbox |
-| **[MiKiosco](https://github.com/Gigisanta/mikiosco)** | POS, cash register and inventory for small shops | Offline sales queue, role-based auth, serverless APIs and PostgreSQL |
+| **iStock** | Inventory and WhatsApp storefront SaaS for phone resellers | Multi-tenancy, Postgres RLS, image pipeline, subscriptions, idempotent webhooks and CI |
+| **RealEstate OS** | Lead-centered operating system for real-estate teams | Next.js monorepo, explainable scoring, RBAC, audit trail and transactional outbox |
+| **MiKiosco** | POS, cash register and inventory for small shops | Offline sales queue, role-based auth, serverless APIs and PostgreSQL |
 
 iStock is a functional pre-production product; RealEstate OS and MiKiosco are
-public engineering builds. Production usage claims below apply only where they
-are stated explicitly.
+private-source engineering builds. I can walk through their architecture,
+tests and trade-offs without publishing the repositories. Production usage
+claims below apply only where they are stated explicitly.
 
 ## Selected production work
 
